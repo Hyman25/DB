@@ -183,8 +183,8 @@ void SqlParse::SqlUpdate()
 	buffer = regex_replace(buffer, tmp, "=");
 
 	vector<string> UpdateAttr = split(getFirstSubstr(buffer, ' '), ",");
-
-	for (int i = 0; i < UpdateAttr.size(); ++i) {
+	
+	for(int i=0;i<UpdateAttr.size();++i){
 		vector<string> Attr_tmp = split(UpdateAttr[i], "=");
 		if (Attr_tmp.size() != 2) return; // ‰»Î“Ï≥£
 
@@ -261,6 +261,7 @@ void SqlParse::SqlCreate()
 
 		for (int i = 0; i < (int)TableAttr.size(); i++) {
 			vector<string> ColumnAttr = split(TableAttr[i], " ");
+
 			string PRIMARY = ColumnAttr[0], KEY = ColumnAttr[1];
             toUpper(PRIMARY);
             toUpper(KEY);
